@@ -1,0 +1,157 @@
+---
+title: Computer Vision and Surfing - Using Deep Sort to Track Waves
+description: Exploring the possibilities of machine learning and surfing
+date: 09-18-2022
+---
+
+## The Goal
+
+Test how well deepsort model can track surfers and waves.
+
+## Challenges
+
+The sport of surfing presents many challenges listed below:
+
+### Occlusion:
+
+Surfers are often obscured by the wave they are riding sometimes by the barrel, a huge spray, or other objects such as rocks, boats, even the sea level sometimes blocks the view.
+
+<Image
+  alt={`Teahupoo`}
+  src={`/ml-blog-1/teahupoo.png`}
+  width={500}
+  height={250}
+/>
+
+### Moving Camera:
+
+Most clips filmed the camera is moving unpredictibly which makes it difficult for the model to predict approximate location of where the surfer may be in the video. Also sometimes when the surfer may go for a huge floater or air he may be out of the frame for a short amount of time. Here's an example of Kolohe Andino pulling off a floater, but out of the camera's view.
+
+<Image
+  alt={`Kolohe`}
+  src={`/ml-blog-1/outofframe.png`}
+  width={500}
+  height={250}
+/>
+
+### Training Data:
+
+Surfing has really yet to be introduced to machine learning (thats what we are here to do), thus there was no good free dataset to train the model specific movements from. Also many clips contain a lot of noise which will be hard to minimize. Thus s good dataset will have to be curated and annotated ourselves. This will take a lot of work and effort, however one of the best athletes of all time is here to help: Kelly. Kelly's artificial wave pool is a great place to start. It presents a perfect wave with a camera that gives a consistent view point angle and distance. Not only that but there has been 4 contests held here which gives a small dataset but worth a start. Here's Kelly on one from his 'pool'.
+
+<Image
+  alt={`Kelly Slater`}
+  src={`/ml-blog-1/kswaveco.png`}
+  width={500}
+  height={250}
+/>
+
+There are more factors that present challenges to track and identify surfers but unfortunately we dont have the time to go over all of them. With all the differnt types of waves, camera placement and movement, and all the other randomness variables introduced by nature, all of these will result in a very erratic and unreliable model. One of WSL's data analysts speaks more too this [here](https://sandiskproacademy.com/watch-an-exclusive-view-of-data-wrangling-at-world-surf-league/)
+
+## Finding the right model
+
+I think the best way to find the right model is to dive into it and see what comes out the other side. Artificial Intelligence is not calculated, it is experimented and iterated multiple times before it can turn into a model that is reliable. So lets dive in.
+
+### The KCF Tracker
+
+The first model I tried was the Kernel Correlation Filter tracker which gets pronounced KFC on accident on a consistent basis. This model is made to track objects fastly and efficiently without getting to data intensive. Here's some code snippets on my implementation of it.
+
+
+```python
+import cv2 
+tracker = cv2.TrackerKCF_create() # Initialize Tracker
+
+video = cv2.VideoCapture(video_input_file_name)
+ok, frame = video.read() 
+
+# Define an initial bounding box 
+bbox = cv2.selectROI(frame, False) 
+displayRectangle(frame, bbox) 
+ok = tracker.init(frame, bbox) 
+```
+
+For each frame we need to calculate the new box and annotate it to the video:
+
+
+```python
+# For each frame 
+while True:
+  ok, frame = video.read() 
+  ok, bbox = tracker.update(frame)
+
+  if ok:
+    drawRectangle(frame, bbox) # Draw the new box 
+
+# Write frame to video 
+  video_out.write(frame)
+```
+
+
+Here's how my KFC model turned first time. Thanks to Opencv for the tutorial and John John!
+
+<Image
+  alt={`Facebook`}
+  src={`/ml-blog-1/jjf-kcf.gif`}
+  width={600}
+  height={350}
+/>
+
+
+## The Deep Sort Model
+
+Our goal here is to be able to detect the surfer for atleast 90% of the wave. After that we can start to train our model to near perfect accuracy. If we are able to 
+track our surfer for more than 90% of the wave then we can start to detect tricks such as carves and cutbacks based on movement, and body posture. One of the amazing tools 
+given to us in recent years is the [Deep Sort Model](https://github.com/nwojke/deep_sort).
+
+Deep sort can be better explained [by this blog post](https://nanonets.com/blog/object-tracking-deepsort/). It is popular and widely used in the computer vision space. 
+To implement it I combined it with the also widely used YOLOv5 model (you only look once) to be able to detect the surfer. One of the problems I ran into was that deep sort 
+code base was not compatible with tensorflow2, specifically tensorflow2 does not have Session module. Instead of downgrading tensflow a quick trick is to:
+```python 
+import tensorflow.compat.v1 as tf
+```
+Another small change you will need to make in 'linear_assignment.py' is to import linear sum assignment instead of linear assignment:
+```python
+from scipy.optimize import linear_sum_assignment as linear_assignment
+```
+
+That method will also change the shape of your matrix on line 58 of 'linear_assignment.py' so you will need to reshape it by adding the line:
+
+```python
+indices = np.hstack([indices[0].reshape(((indices[0].shape[0]), 1)),
+                        indices[1].reshape(((indices[0].shape[0]), 1))])
+```
+
+These changes are not too hard to figure out, but I though I'd share them for now as well as upload my repository in the future.
+
+## The Results
+
+To test the deep sort model I decided to choose 3 videos that all presented the challenges above and see how well it would perform. The first video is the same one as before:
+
+<Image
+  alt={`John John Florence`}
+  src={`/ml-blog-1/john.gif`}
+  width={600}
+  height={350}
+/>
+
+The next Image I used was Kolohe Andino from Reckless Isolation. This was a tricky video due to lighting and also him being out of the frame for a short amount of time, but it performed
+very well
+
+<Image
+  alt={`Kolohe Andino Computer Vision`}
+  src={`/ml-blog-1/kolohe.gif`}
+  width={600}
+  height={350}
+/>
+
+Finally the last video I wanted to use was to test how the model would perform on predicting a surfer deep in the tube. This is where the Kalman filter shows its true power. Here's 
+Kelly Slater's perfect 10 at backdoor in 2019!
+
+<Image
+  alt={`Kelly Slater`}
+  src={`/ml-blog-1/kelly.gif`}
+  width={600}
+  height={350}
+/>
+
+Overall the Deep Sort Algorithm worked very well for a start. With a good camera angle and a consistent view point, the model was able to track the surfer for the majority of the wave.
+It had trouble finding Kelly in the barrel but that was to be expected. Next part in the series I shoot to work on further refining the model and also start to train it on a dataset of my own. Stay tuned for more!
