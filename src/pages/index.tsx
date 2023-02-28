@@ -15,12 +15,14 @@ const Home: NextPage = () => {
         <meta name="description" content="jathompson.io" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex min-h-screen max-w-2xl flex-col items-center justify-center bg-black">
-        {allPosts.map((post) => (
-          <Link key={post.url} href={`${post.url}`}>
-            <p>{post.title}</p>
-          </Link>
-        ))}
+      <main className="flex min-h-screen bg-black">
+        <div className="container mx-auto">
+          {allPosts.map((post) => (
+            <Link key={post.url} href={`${post.url}`}>
+              <p className="text-white">{post.title}</p>
+            </Link>
+          ))}
+        </div>
       </main>
     </>
   );
