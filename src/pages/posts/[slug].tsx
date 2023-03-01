@@ -1,25 +1,13 @@
 import Head from "next/head";
 import Link from "next/link";
 import { allPosts } from "contentlayer/generated";
+import type { GetStaticPropsContext } from "next";
 
-export async function getStaticPaths() {
-  const paths = allPosts.map((post) => post.url);
-  return {
-    paths,
-    fallback: false,
-  };
+interface PostLayoutProps {
+  post: Post;
 }
 
-export async function getStaticProps({ params }) {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
-  return {
-    props: {
-      post,
-    },
-  };
-}
-
-const PostLayout = ({ post }) => {
+const PostLayout: React.FC<PostLayoutProps> = ({ post }) => {
   return (
     <>
       <Head>
@@ -40,5 +28,27 @@ const PostLayout = ({ post }) => {
     </>
   );
 };
+
+// eslint-disable-next-line @typescript-eslint/require-await
+export async function getStaticPaths() {
+  const paths = allPosts.map((post) => post.url);
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+// eslint-disable-next-line @typescript-eslint/require-await
+export async function getStaticProps(
+  context: GetStaticPropsContext<{ slug: string }>
+): Promise<{ props: PostLayoutProps }> {
+  const { slug } = context.params;
+  const post = allPosts.find((post) => post._raw.flattenedPath === slug);
+  return {
+    props: {
+      post,
+    },
+  };
+}
 
 export default PostLayout;

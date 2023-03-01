@@ -20,7 +20,8 @@
     "paths": {
       "~/*": ["./src/*"], 
       "contentlayer/generated": ["./.contentlayer/generated"]
-    }
+    },
+    "typeRoots": ["./node_modules/@types", "./src/@types"]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.mjs", "contentlayer.config.js", ".contentlayer/generated"],
   "exclude": ["node_modules"]
