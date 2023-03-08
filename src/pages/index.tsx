@@ -6,6 +6,7 @@ import Link from "next/link";
 import { allPosts } from "contentlayer/generated";
 import Header from "~/components/Header";
 import Title from "~/components/Title";
+import Project from "~/components/Project";
 
 const Home: NextPage = () => {
   return (
@@ -19,6 +20,11 @@ const Home: NextPage = () => {
         <div className="container mx-auto px-4">
           <Header />
           <Title />
+
+          <Project />
+
+          <div className="p-16"></div>
+
           {allPosts.map((post) => (
             <Link key={post.url} href={`${post.url}`}>
               <p className="text-white">{post.title}</p>

@@ -5,3 +5,8 @@
 body {
   background-color: #000;
 }
+
+h1 {
+  @apply text-4xl lg:text-6xl;
+  font-family: "Roboto", sans-serif;
+}
