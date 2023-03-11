@@ -15,7 +15,10 @@ const Header = () => {
         <Link className="my-4 mx-8 text-white" href="/">
           CV
         </Link>
-        <Link className="my-2 mx-8 bg-[#419C87] p-2 text-white" href="/">
+        <Link
+          className="my-2 mx-8 rounded-sm border border-secondary bg-primary-dark p-2 text-white"
+          href="/"
+        >
           View Projects
         </Link>
       </div>
