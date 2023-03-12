@@ -7,6 +7,7 @@ import { allPosts } from "contentlayer/generated";
 import Header from "~/components/Header";
 import Title from "~/components/Title";
 import Project from "~/components/Project";
+import About from "~/components/About";
 
 const Home: NextPage = () => {
   return (
@@ -16,10 +17,12 @@ const Home: NextPage = () => {
         <meta name="description" content="jathompson.io" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="min-h-screen bg-[#121414]">
+      <main className="min-h-screen bg-black">
         <div className="container mx-auto px-4">
           <Header />
           <Title />
+
+          <About />
 
           <Project />
 

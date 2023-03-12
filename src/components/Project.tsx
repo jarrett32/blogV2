@@ -15,7 +15,7 @@ const Project = () => {
         <>
           <div className="my-8 flex items-center justify-between">
             <h1 className="font-bold text-white">Project 1</h1>
-            <div className="mr-20 h-0 w-1/3 border border-t-green-300 lg:mr-60 lg:w-1/2"></div>
+            <div className="mr-20 h-0 w-1/3 border border-secondary lg:mr-60 lg:w-1/2"></div>
           </div>
 
           <div className="flex flex-col lg:flex-row lg:justify-between">
