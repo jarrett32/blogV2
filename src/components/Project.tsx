@@ -10,16 +10,19 @@ const projectsData: ProjectsData = data;
 
 const Project = () => {
   return (
-    <div className="mx-10 lg:mx-8">
+    <div>
       {projectsData["projects"].map((project: Project) => (
-        <>
+        <div
+          key={project.title}
+          className="mt-16 rounded-xl border border-secondary border-opacity-25 bg-black-light px-16 py-16 transition duration-300 ease-in-out hover:border-opacity-60 hover:bg-opacity-30"
+        >
           <div className="my-8 flex items-center justify-between">
             <h1 className="font-bold text-white">Project 1</h1>
             <div className="mr-20 h-0 w-1/3 border border-secondary lg:mr-60 lg:w-1/2"></div>
           </div>
 
           <div className="flex flex-col lg:flex-row lg:justify-between">
-            <div className="z-10 mt-8 w-full lg:mt-0 lg:w-1/2">
+            <div className="z-10 mt-8 ml-8 w-full lg:mt-0 lg:w-1/2">
               <Image
                 className="relative z-10"
                 src={project.image}
@@ -50,7 +53,7 @@ const Project = () => {
               </p>
             </div>
           </div>
-        </>
+        </div>
       ))}
     </div>
   );
