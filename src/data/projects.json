@@ -4,21 +4,22 @@
       "title": "AlwaysAI",
       "description": "Computer Vision Applications",
       "image": "/projects/alwaysai.png",
-      "github": "",
+      "code": "",
       "link": "https://alwaysai.co"
     },
     {
       "title": "UCSD VAC 2.0",
       "description": "Partially started working on the redesign of Virtual Advising Center 2.0. The main method students use to contact faculty and advisors",
       "image": "/projects/ucsd.png",
-      "github": "",
+      "code": "",
       "link": ""
     },
     {
       "title": "Tender Finance",
       "description": "Contributer to a decentralized lending and borrowing protocol, Tender Finance",
       "image": "/projects/tender-finance.png",
-      "link": ""
+      "code": "https://github.com/tender-finance/tender-frontend",
+      "link": "https://tender.fi"
     },
     {
       "title": "Blackjack",
