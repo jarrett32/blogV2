@@ -31,6 +31,8 @@ const Home: NextPage = () => {
 
           <Project />
 
+          <div className="p-8"></div>
+
           {allPosts.map((post: Post) => (
             <BlogHeader key={post.title} post={post} />
             // <Link key={post.url} href={`${post.url}`}>

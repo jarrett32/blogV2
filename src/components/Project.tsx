@@ -17,8 +17,8 @@ const Project = () => {
           className="mt-16 rounded-xl border border-secondary border-opacity-25 bg-black-light px-16 py-16 transition duration-300 ease-in-out hover:border-opacity-60 hover:bg-opacity-30"
         >
           <div className="my-8 flex items-center justify-between">
-            <h1 className="font-bold text-white">Project 1</h1>
-            <div className="mr-20 h-0 w-1/3 border border-secondary lg:mr-60 lg:w-1/2"></div>
+            <h1 className="w-full font-bold text-white">{project.title}</h1>
+            <div className="mr-20 h-0 w-full border border-secondary lg:mr-60"></div>
           </div>
 
           <div className="flex flex-col lg:flex-row lg:justify-between">
@@ -38,15 +38,17 @@ const Project = () => {
                   width={196}
                   height={250}
                 />
-                <button className="border-g-300 ml-56 mt-3 h-12 rounded-sm border p-2 px-4 text-green-300 hover:bg-green-300 hover:text-black">
-                  View Code
-                </button>
+                {project.link && project.link != "" && (
+                  <button className="border-g-300 ml-56 mt-3 h-12 rounded-sm border p-2 px-4 text-green-300 hover:bg-green-300 hover:text-black">
+                    View Code
+                  </button>
+                )}
               </div>
             </div>
 
             <div className="mt-8 w-full  lg:mt-0 lg:w-1/2">
               <h1 className="text-2xl font-bold text-white lg:text-4xl">
-                {project.title}
+                {project.subTitle || ""}
               </h1>
               <p className="text-lg text-white lg:text-2xl">
                 {project.description}
