@@ -18,9 +18,9 @@ const Project = () => {
         >
           <div className="my-8 flex items-center justify-between">
             <h1 className="w-full font-bold text-white">{project.title}</h1>
-            <div className="mr-20 h-0 w-full border border-secondary lg:mr-20"></div>
+            <div className="mx-4 h-0 w-full border border-secondary lg:mr-20"></div>
             {project.link && project.link != "" && (
-              <button className="border-g-300 h-12 w-96 rounded-sm border p-2 px-4 text-green-300 hover:bg-green-300 hover:text-black">
+              <button className="border-g-300 h-16 w-96 rounded-sm border p-2 px-4 text-green-300 hover:bg-green-300 hover:text-black lg:h-12">
                 View Project
               </button>
             )}
@@ -44,7 +44,7 @@ const Project = () => {
                   height={250}
                 />
                 {project.code && project.code != "" && (
-                  <button className="border-g-300 ml-56 mt-3 h-12 rounded-sm border p-2 px-4 text-green-300 hover:bg-green-300 hover:text-black">
+                  <button className="border-g-300 ml-56 mt-3 h-12 rounded-sm border p-2 px-2 text-green-300 hover:bg-green-300 hover:text-black lg:px-4">
                     View Code
                   </button>
                 )}
