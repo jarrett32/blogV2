@@ -43,9 +43,6 @@ const Home: NextPage = () => {
           <div className="anchor" id="blog-section"></div>
           {allPosts.map((post: Post) => (
             <BlogHeader key={post.title} post={post} />
-            // <Link key={post.url} href={`${post.url}`}>
-            //   <p className="text-white">{post.title}</p>
-            // </Link>
           ))}
 
           <div className="p-16"></div>
