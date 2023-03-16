@@ -22,12 +22,6 @@
       "link": "https://tender.fi"
     },
     {
-      "title": "Blackjack",
-      "description": "Custom blackjack game coming soon",
-      "image": "/projects/Cards.png",
-      "link": ""
-    },
-    {
       "title": "Drone",
       "description": "Custom drone that uses CV for autopilot",
       "image": "/projects/drone.png",

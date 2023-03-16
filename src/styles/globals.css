@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  @apply scroll-smooth;
+}
+
 body {
   background-color: #000;
 }
@@ -9,6 +13,11 @@ body {
 h1 {
   @apply text-4xl lg:text-6xl;
   font-family: "Roboto", sans-serif;
+}
+
+.anchor {
+  position: absolute;
+  transform: translateY(-50vh);
 }
 
 code,
