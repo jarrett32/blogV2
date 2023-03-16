@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { allPosts } from "contentlayer/generated";
 import type { GetStaticPropsContext } from "next";
+import { Mdx } from "~/components/MDX";
 
 interface PostLayoutProps {
   post: Post;
@@ -20,10 +21,7 @@ const PostLayout: React.FC<PostLayoutProps> = ({ post }) => {
         <div className="mb-6 text-center">
           <h1 className="mb-1 text-3xl font-bold text-white">{post.title}</h1>
         </div>
-        <div
-          className="text-white"
-          dangerouslySetInnerHTML={{ __html: post.body.html }}
-        />
+        <Mdx post={post} />
       </article>
     </>
   );

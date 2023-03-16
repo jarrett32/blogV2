@@ -10,3 +10,48 @@ h1 {
   @apply text-4xl lg:text-6xl;
   font-family: "Roboto", sans-serif;
 }
+
+code,
+tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  background-color: #141918;
+  border: 1px solid #60F6D3;
+  border-radius: 3px;
+}
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+  color: #60F6D3;
+}
+
+.highlight pre {
+  background-color: #141918;
+  border: 1px solid #60F6D3;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre {
+  background-color: #141918;
+  border: 1px solid #60F6D3;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code,
+pre tt {
+  background-color: transparent;
+  border: none;
+}

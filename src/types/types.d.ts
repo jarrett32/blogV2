@@ -5,6 +5,8 @@ interface Post {
   body: {
     html: string;
   };
+  url?: string;
+  code?: string;
 }
 
 interface Project {
