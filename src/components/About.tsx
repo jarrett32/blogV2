@@ -13,7 +13,7 @@ const About = () => {
           <div className="text-white">
             Hello there! My name is Jarrett, and I am an enthusiastic Computer
             Science student with a passion for mathematics, computer science,
-            and engineering. When I'm not studying mathematics or developing
+            and engineering. When Im not studying mathematics or developing
             algorithms, you can find me catching waves on my surfboard or
             watching a baseball game. My goal is to harness my unique blend of
             talents to develop innovative and creative solutions.

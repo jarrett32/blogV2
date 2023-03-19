@@ -3,6 +3,7 @@ interface Post {
   description: string;
   date: string;
   body: {
+    code: string;
     html: string;
   };
   url?: string;
