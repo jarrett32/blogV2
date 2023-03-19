@@ -22,7 +22,7 @@ const Project = () => {
             <div className="mx-4 h-0 w-full border border-secondary lg:mr-20"></div>
             {project.link && project.link != "" && (
               <Link href={project.link}>
-                <button className="border-g-300 h-16 w-96 rounded-sm border p-2 px-4 text-green-300 hover:bg-green-300 hover:text-black lg:h-12">
+                <button className="border-g-300 h-16 w-40 rounded-sm border p-2 px-4 text-green-300 hover:bg-green-300 hover:text-black lg:h-12 lg:w-96">
                   View Project
                 </button>
               </Link>
