@@ -1,9 +1,25 @@
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { projectVariants } from "../utils/motionVariants";
 
 const About = () => {
+  const [ref, inView] = useInView({
+    rootMargin: "-30% 0px -30% 0px",
+    threshold: 0.5, // half of item height
+  });
+
   return (
-    <div className="scroll-smooth rounded-xl border border-secondary border-opacity-25  bg-black-light px-8 py-16 transition duration-300 ease-in-out hover:border-opacity-60 hover:bg-opacity-30">
+    <motion.div
+      className="scroll-smooth rounded-xl border border-secondary border-opacity-25  bg-black-light px-8 py-16 transition duration-300 ease-in-out hover:border-opacity-60 hover:bg-opacity-30"
+      ref={ref}
+      initial="initial"
+      animate={inView ? "inView" : "notInView"}
+      whileHover="hover"
+      variants={projectVariants}
+      transition={{ duration: 0.1 }}
+    >
       <div className="flex flex-col justify-between lg:flex-row">
         <div className="w-full lg:w-2/3">
           <div className="my-8 flex items-center justify-between">
@@ -23,7 +39,7 @@ const About = () => {
           <Image src="/kauai.png" alt="kauai" width={400} height={200} />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

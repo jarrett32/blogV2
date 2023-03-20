@@ -15,11 +15,13 @@
     "@trpc/react-query": "^10.9.0",
     "@trpc/server": "^10.9.0",
     "contentlayer": "^0.3.0",
+    "framer-motion": "^10.6.0",
     "moment": "^2.29.4",
     "next": "13.1.6",
     "next-contentlayer": "^0.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-intersection-observer": "^9.4.3",
     "superjson": "1.9.1",
     "zod": "^3.20.2"
   },

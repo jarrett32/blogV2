@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
@@ -21,7 +22,7 @@ const Home: NextPage = () => {
         <link rel="stylesheet"></link>
       </Head>
       <main className="min-h-screen bg-black">
-        <div className="container mx-auto px-4">
+        <div className="container relative mx-auto px-4">
           <Header />
           <Title />
 
@@ -45,7 +46,7 @@ const Home: NextPage = () => {
             <BlogHeader key={post.title} post={post} />
           ))}
 
-          <div className="p-16"></div>
+          <div className="p-32"></div>
         </div>
       </main>
     </>
