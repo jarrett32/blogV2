@@ -34,7 +34,7 @@ const Home: NextPage = () => {
           <div className="p-8"></div>
           <div className="anchor" id="projects-section"></div>
           <h1 className="text-center text-4xl font-bold text-white">
-            Projects
+            Projects/Experience
           </h1>
           <Project />
 
