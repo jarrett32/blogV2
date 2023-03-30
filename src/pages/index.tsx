@@ -1,11 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import { type NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
 
 // import { api } from "~/utils/api";
 import { allPosts } from "contentlayer/generated";
+import type { Post } from "contentlayer/generated";
 import Header from "~/components/Header";
 import Title from "~/components/Title";
 import Project from "~/components/Project";

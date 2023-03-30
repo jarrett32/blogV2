@@ -3,6 +3,7 @@ import Link from "next/link";
 import { allPosts } from "contentlayer/generated";
 import type { GetStaticPropsContext } from "next";
 import { Mdx } from "~/components/MDX";
+import type { Post } from "contentlayer/generated";
 
 interface PostLayoutProps {
   post: Post;

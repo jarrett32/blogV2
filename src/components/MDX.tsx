@@ -2,6 +2,7 @@
 import * as React from "react";
 import Image from "next/image";
 import { useMDXComponent } from "next-contentlayer/hooks";
+import type { Post } from "contentlayer/generated";
 
 const CustomLink = (props) => {
   return <a target="_blank" rel="noopener noreferrer" {...props} />;
