@@ -25,7 +25,7 @@
       "title": "Drone",
       "description": "Custom drone that uses CV for autopilot",
       "image": "/projects/drone.png",
-      "link": ""
+      "link": "/posts/drone-part-1"
     }
   ]
 }
