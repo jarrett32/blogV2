@@ -1,0 +1,41 @@
+---
+title: Building the F450 Autonomous Quadcopter's Software - A Personal Journey
+description: My insights on creating the software for the F450 quadcopter, powered by a Raspberry Pi.
+date: 06-12-2023
+---
+
+## The Software Story behind my F450 Autonomous Quadcopter
+
+The F450 Autonomous Quadcopter, with its sturdy hardware profile, is quite a machine to behold. Yet, its core strength lies hidden beneath the physical components - the meticulously designed software. Initially, I was working with a NVIDIA Jetson Nano, but size constraints led me to switch gears towards a Raspberry Pi.
+
+## Structuring the Software: The Method to the Madness
+
+The software architecture for the F450 is a layered composition. The Raspberry Pi sits at the heart, processing the bulk of the operations. It runs a server application, custom-built by yours truly, that relays MAVLink commands to the Pixhawk flight controller via a serial connection.
+
+To enable interaction with the server, I fashioned an iOS app. It acts as an intermediary, taking pre-coded commands from the user and delivering them to the server, thus simplifying the drone control for the user.
+
+## iOS App: My Personal Remote for the Quadcopter
+
+A key differentiator for the F450 is the companion iOS app. My objective was to develop a more interactive and intuitive control system. The app allows the user to send commands, controlling the drone with a few taps.
+
+The app simplifies drone operation while simultaneously opening doors for complex, pre-coded commands. This setup empowers the user to manipulate the drone to perform intricate flight maneuvers or patterns.
+
+## Server Application: The Crucial Conduit
+
+The Raspberry Pi in my quadcopter runs the Python-based server application. It is responsible for managing all incoming commands from the iOS app and translating them into MAVLink commands. Subsequently, these commands are fed to the Pixhawk flight controller via a serial connection.
+
+Building the server software was a formidable task. The software was to handle concurrent commands, facilitate communication with the iOS app, and synchronize with the Pixhawk hardware, all in real-time and flawlessly. I had to make many design decisions regarding error handling, command queuing, and system resiliency.
+
+To resolve this, I introduced a DroneControl class that maintains a queue of commands, processing them sequentially. This approach ensures smooth and orderly execution of commands, providing robust error management.
+
+The key part about this is that you would be able to setup a hotspot from your phone and fly your drone anywhere if you have a hotspot and a full battery charge. The downside of this is that the drone can't fly too far before it is out of range.
+
+## Update
+
+I was able to test fly the drone which flew well for a wopping 3 seconds before crashing. After further inspection, I determined it was imbalanced and one of the motors was pushing more lift than the others. I've put quite a lot of time and resources so far and since some pieces of it broke I've decided to take a small break for now. I think a better approach would be first fly it with a controller to make sure it's well balanced and can fly, then to add pre-coded routes and manuevers.
+
+## Reflection
+
+The journey of my F450 Autonomous Quadcopter, from the iOS app to the Raspberry Pi server, and finally putting it all together has been a remarkable learning experience. It pushed me to combine solid software design principles with advanced hardware, resulting in a drone that offers both versatility and power.
+
+Please refer to my GitHub repositories [here](https://github.com/jarrett32/DroneServer/tree/main) and [here](https://github.com/jarrett32/DroneControl)for more technical details on this project or continue this project on your own. Feel free to reach out if you need any help getting started or have any questions.
