@@ -8,11 +8,11 @@
       "link": "https://alwaysai.co"
     },
     {
-      "title": "UCSD VAC 2.0",
-      "description": "Partially started working on the redesign of Virtual Advising Center 2.0. The main method students use to contact faculty and advisors",
-      "image": "/projects/ucsd.png",
-      "code": "",
-      "link": ""
+      "title": "MarketPlace Watch",
+      "description": "Takes data from facebook offerup, facebook marketplace, etc and finds the best deals for resale items",
+      "image": "/projects/mpwatch.png",
+      "code": "https://github.com/jarrett32/mpwatch",
+      "link": "https://mpwatch.vercel.app/"
     },
     {
       "title": "Tender Finance",
@@ -20,6 +20,13 @@
       "image": "/projects/tender-finance.png",
       "code": "https://github.com/tender-finance/tender-frontend",
       "link": "https://tender.fi"
+    },
+    {
+      "title": "UCSD VAC 2.0",
+      "description": "Partially started working on the redesign of Virtual Advising Center 2.0. The main method students use to contact faculty and advisors",
+      "image": "/projects/ucsd.png",
+      "code": "",
+      "link": ""
     },
     {
       "title": "Drone",

@@ -3,13 +3,13 @@ import { type NextPage } from "next";
 import Head from "next/head";
 
 // import { api } from "~/utils/api";
-import { allPosts } from "contentlayer/generated";
 import type { Post } from "contentlayer/generated";
-import Header from "~/components/Header";
-import Title from "~/components/Title";
-import Project from "~/components/Project";
+import { allPosts } from "contentlayer/generated";
 import About from "~/components/About";
 import BlogHeader from "~/components/BlogHeader";
+import Header from "~/components/Header";
+import Project from "~/components/Project";
+import Title from "~/components/Title";
 
 const Home: NextPage = () => {
   return (
@@ -21,7 +21,7 @@ const Home: NextPage = () => {
         <link rel="stylesheet"></link>
       </Head>
       <main className="min-h-screen bg-black">
-        <div className="container relative mx-auto px-4">
+        <div className="container relative mx-auto max-w-4xl px-4">
           <Header />
           <Title />
 

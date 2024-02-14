@@ -1,7 +1,7 @@
-import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 import { useInView } from "react-intersection-observer";
 import { projectVariants } from "../utils/motionVariants";
 
@@ -65,7 +65,7 @@ const ProjectItem = ({ project }: { project: Project }) => {
           <h1 className="text-2xl font-bold text-white lg:text-4xl">
             {project.subTitle || ""}
           </h1>
-          <p className="text-lg text-white lg:text-2xl">
+          <p className="text-md px-4 text-white lg:text-lg">
             {project.description}
           </p>
         </div>

@@ -1,9 +1,9 @@
-import React from "react";
-import Link from "next/link";
+import type { Post } from "contentlayer/generated";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import React from "react";
 import { useInView } from "react-intersection-observer";
 import { projectVariants } from "../utils/motionVariants";
-import type { Post } from "contentlayer/generated";
 
 import moment from "moment";
 
@@ -38,7 +38,7 @@ const BlogHeader = (props: BlogHeaderProps) => {
             </div>
           </div>
           {post.description && (
-            <div className="text-gray-500">{post.description}</div>
+            <div className="px-4 text-gray-500">{post.description}</div>
           )}
         </motion.div>
       </Link>
