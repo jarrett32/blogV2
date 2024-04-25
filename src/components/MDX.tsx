@@ -3,6 +3,7 @@ import * as React from "react";
 import Image from "next/image";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import type { Post } from "contentlayer/generated";
+import ImageSlider from "./ImageSlider";
 
 const CustomLink = (props) => {
   return <a target="_blank" rel="noopener noreferrer" {...props} />;
@@ -16,6 +17,7 @@ function nextImage(props) {
 const components = {
   a: CustomLink,
   Image: nextImage,
+  ImageSlider: ImageSlider,
 };
 
 interface MdxProps {
