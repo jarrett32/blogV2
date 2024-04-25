@@ -1,8 +1,17 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-const ImageSlider = ({ images }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+interface ImageProps {
+  src: string;
+  alt: string;
+}
+
+interface ImageSliderProps {
+  images: ImageProps[];
+}
+
+const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const goToPrevious = () => {
     const isFirstImage = currentIndex === 0;
