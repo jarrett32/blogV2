@@ -15,11 +15,10 @@
       "link": "https://mpwatch.vercel.app/"
     },
     {
-      "title": "Tender Finance",
-      "description": "Contributer to a decentralized lending and borrowing protocol, Tender Finance",
-      "image": "/projects/tender-finance.png",
-      "code": "https://github.com/tender-finance/tender-frontend",
-      "link": "https://tender.fi"
+      "title": "Cameron Law Center",
+      "description": "Help run and manage the Cameron Law Center website, a law firm located in Chicago",
+      "image": "/cameronlawcenter.png",
+      "link": "https://cameronlawcenter.com"
     },
     {
       "title": "UCSD VAC 2.0",
