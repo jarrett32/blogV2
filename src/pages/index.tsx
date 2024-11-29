@@ -22,14 +22,16 @@ const Home: NextPage = () => {
       </Head>
       <main className="min-h-screen bg-black">
         <div className="container relative mx-auto max-w-4xl px-4">
-          <Header />
+          <p>This portfolio has moved to </p>{" "}
+          <a href="https://jathompson.dev" className="text-blue underline">
+            jathompson.dev
+          </a>
+          {/* <Header />
           <Title />
 
           <div className="anchor" id="about-section"></div>
           <About />
 
-          {/* Add wires svg image */}
-          {/* <Image src="/util/wires.svg" alt="wires" width={400} height={200} /> */}
           <div className="p-8"></div>
           <div className="anchor" id="projects-section"></div>
           <h1 className="text-center text-4xl font-bold text-white">
@@ -45,7 +47,7 @@ const Home: NextPage = () => {
             <BlogHeader key={post.title} post={post} />
           ))}
 
-          <div className="p-32"></div>
+          <div className="p-32"></div> */}
         </div>
       </main>
     </>
